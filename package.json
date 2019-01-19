@@ -17,6 +17,8 @@
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-router-dom": "^4.3.1",
+    "react-spinkit": "^3.0.0",
+    "spinkit": "^1.2.5",
     "superagent": "^4.1.0",
     "typescript": "^3.2.2",
     "webpack": "^4.28.3",
@@ -24,6 +26,8 @@
   },
   "devDependencies": {
     "awesome-typescript-loader": "^5.2.1",
+    "css-loader": "^2.1.0",
+    "style-loader": "^0.23.1",
     "webpack-cli": "^3.2.0"
   }
 }

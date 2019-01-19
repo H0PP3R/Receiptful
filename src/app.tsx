@@ -2,7 +2,6 @@ import * as React from "react";
 import HomePage from './components/homePage';
 //import logo from './Logo.png';
 //import title from './Picture1.png';
-const request = require('superagent');
 export class Index extends React.Component {
   render() {
     return (
