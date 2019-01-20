@@ -43,7 +43,6 @@ export default class ConfirmationPage extends React.Component<any,any> {
         </div>
         <h2>Is this accurate?</h2>
         <div>
-          <div>
             <button onClick={() => this.send(true)}>Yes</button>
         </div>
         <div>
