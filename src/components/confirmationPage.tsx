@@ -37,10 +37,6 @@ export default class ConfirmationPage extends React.Component<any,any> {
           }
             <h2>Results:</h2>
         </div>
-
-        <div>
-          <img src="https://images-na.ssl-images-amazon.com/images/I/8166xCVDGnL._SL1500_.jpg"/>
-        </div>
         <h2>Is this accurate?</h2>
         <div>
             <button onClick={() => this.send(true)}>Yes</button>
