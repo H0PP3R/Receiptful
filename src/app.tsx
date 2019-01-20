@@ -2,19 +2,6 @@ import * as React from "react";
 import HomePage from './components/homePage';
 //import logo from './Logo.png';
 //import title from './Picture1.png';
-export class Index extends React.Component {
-  render() {
-    return (
-      
-        <div className="container">
-          <div id="header">
-            <div className="App-Logo">
-            </div>
-          </div>
-        </div>
-    )
-  }
-}
 export default class App extends React.Component<any, any> {
 	constructor(props) {
 		super(props);
@@ -31,12 +18,7 @@ export default class App extends React.Component<any, any> {
     	const {currentPage} = this.state;
         return (
         	<div>
-        		<div>
-		            <h1>Logo & Slogan</h1>
-		        </div>
-		        <div>
-		        	<HomePage/>
-		        </div>
+	        	<HomePage/>
         	</div>
         );
     }
