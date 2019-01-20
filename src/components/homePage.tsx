@@ -38,25 +38,23 @@ export default class HomePage extends React.Component<any,any> {
   render() {
     return (
       <div>
-
         <div>
-            <h2>Upload your photo:</h2>
-        </div>
+          <h2>Upload your photo:</h2>
 
-        <div>
-          <input onChange={this.onImage}
-              className="hidden"
-              id="camera"
-              type="file"
-              accept="image/*"
-              capture
-              ref="fileInput"/>
+          <div>
+            <input onChange={this.onImage}
+                className="hidden"
+                id="camera"
+                type="file"
+                accept="image/*"
+                capture
+                ref="fileInput"/>
+          </div>
         </div>
-      </div>
-      <div>
         {
           (this.state.loading)?
-            <Spinner name="ball-beat" color="steelblue"/>            :
+            <Spinner name="ball-beat" color="steelblue"/>
+           :
             null
         }
       </div>
