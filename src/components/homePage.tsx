@@ -41,8 +41,20 @@ export default class HomePage extends React.Component<any,any> {
         (this.state.confirm)?
           <ConfirmationPage receiptData={this.state.receiptData}/>
          :
-          <div>
+          <div className="container">
             <div>
+              <label htmlFor={"camera"}>
+              <div className = "btn">
+                <h1> Upload a photo 
+                </h1>
+               </div>
+             </label>
+            </div>
+              {
+                (this.state.loading)?
+                  <Spinner name="ball-beat" color="steelblue"/>            :
+                  null
+              }
               <input onChange={this.onImage}
                   className="hidden"
                   id="camera"
@@ -50,16 +62,8 @@ export default class HomePage extends React.Component<any,any> {
                   accept="image/*"
                   capture
                   ref="fileInput"/>
-            </div>
-            {
-              (this.state.loading)?
-                <Spinner name="ball-beat" color="steelblue"/>
-               :
-                null
-            }
-           </div>
+          </div>
       }
-      </div>
     );
   }
 }

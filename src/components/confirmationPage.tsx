@@ -35,15 +35,19 @@ export default class ConfirmationPage extends React.Component<any,any> {
               return <p key={key}>{item.name}&nbsp;&nbsp;{item.price}</p>
             })
           }
+            <h2>Results:</h2>
+        </div>
+
+        <div>
+          <img src="https://images-na.ssl-images-amazon.com/images/I/8166xCVDGnL._SL1500_.jpg"/>
         </div>
         <h2>Is this accurate?</h2>
         <div>
           <div>
             <button onClick={() => this.send(true)}>Yes</button>
-          </div>
-          <div>
-            <button onClick={() => this.send(false)}>No</button>
-          </div>
+        </div>
+        <div>
+          <button onClick={() => this.send(false)}>No</button>
         </div>
       </div>
     );
