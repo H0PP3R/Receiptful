@@ -13,10 +13,7 @@ export default class HomePage extends React.Component<any,any> {
     }
     this.onImage = this.onImage.bind(this);
   }
-  async onImage(event) {
-    await this.setState({
-      loading: true
-    });
+  onImage(event) {
     event.preventDefault();
     const input = event.currentTarget;
     console.log(input.files);
@@ -25,11 +22,12 @@ export default class HomePage extends React.Component<any,any> {
   }
   async processImage(file) {
     const req = request
-    .post('TBC')
-    .set("Accept", "application/json")
-    .set("Content-type", "multipart/form-data");
+    .post('http://172.20.3.203:3000/api/image')
+    .set("Content-Type", "application/octet-stream")
+    .set("Access-Control-Allow-Origin", "*");
     const res = await req.send(file);
     const response = JSON.parse(res.text);
+    console.log(response);
     // if (!!response) {
     //   this.setState({
     //     loading : false

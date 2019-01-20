@@ -11,7 +11,7 @@ export default class ConfirmationPage extends React.Component<any,any> {
   }
   async send(value : boolean) {
     const req = request
-    .post('TBC')
+    .post('http://172.20.3.203:3000/api/image')
     .set("Accept", "application/json")
     .set("Content-type", "application/json");
     const res = await req.send(value.toString());
@@ -38,10 +38,6 @@ export default class ConfirmationPage extends React.Component<any,any> {
           <div>
             <button onClick={() => this.send(false)}>No</button>
           </div>
-        </div>
-
-        <div>
-          For processing the yes or no thing.
         </div>
       </div>
     );
