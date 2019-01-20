@@ -2,6 +2,7 @@ import * as React from "react";
 const request = require('superagent');
 import './homePage.css';
 const Spinner = require('react-spinkit');
+import App from '../app';
 import ConfirmationPage from './confirmationPage';
 
 export default class HomePage extends React.Component<any,any> {
@@ -10,13 +11,13 @@ export default class HomePage extends React.Component<any,any> {
     this.state = {
       file : "",
       loading : false,
+      confirm : false,
     }
     this.onImage = this.onImage.bind(this);
   }
   onImage(event) {
     event.preventDefault();
     const input = event.currentTarget;
-    console.log(input.files);
     let file = input.files[0];
     this.processImage(file);
   }
@@ -27,32 +28,37 @@ export default class HomePage extends React.Component<any,any> {
     .set("Access-Control-Allow-Origin", "*");
     const res = await req.send(file);
     const response = JSON.parse(res.text);
-    console.log(response);
-    // if (!!response) {
-    //   this.setState({
-    //     loading : false
-    //   });
-    //   <ConfirmationPage/>;
-    // }
+    this.setState({
+      loading : false,
+      confirm : true,
+      receiptData : response,
+    });
   }
   render() {
     return (
       <div>
-        <div>
-          <input onChange={this.onImage}
-              className="hidden"
-              id="camera"
-              type="file"
-              accept="image/*"
-              capture
-              ref="fileInput"/>
-        </div>
-        {
-          (this.state.loading)?
-            <Spinner name="ball-beat" color="steelblue"/>
-           :
-            null
-        }
+      {
+        (this.state.confirm)?
+          <ConfirmationPage receiptData={this.state.receiptData}/>
+         :
+          <div>
+            <div>
+              <input onChange={this.onImage}
+                  className="hidden"
+                  id="camera"
+                  type="file"
+                  accept="image/*"
+                  capture
+                  ref="fileInput"/>
+            </div>
+            {
+              (this.state.loading)?
+                <Spinner name="ball-beat" color="steelblue"/>
+               :
+                null
+            }
+           </div>
+      }
       </div>
     );
   }

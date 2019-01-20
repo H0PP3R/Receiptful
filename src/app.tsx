@@ -1,5 +1,6 @@
 import * as React from "react";
 import HomePage from './components/homePage';
+import ConfirmationPage from './components/confirmationPage';
 //import logo from './Logo.png';
 //import title from './Picture1.png';
 export default class App extends React.Component<any, any> {
@@ -17,9 +18,11 @@ export default class App extends React.Component<any, any> {
     render() {
     	const {currentPage} = this.state;
         return (
-        	<div>
-	        	<HomePage/>
-        	</div>
+          <HomePage/>
         );
     }
 }
+
+(() => {
+
+})()
